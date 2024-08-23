@@ -20,6 +20,7 @@
 
 
     **Cadete**
+    
         public: nombre, telefono, direccion.
 
 

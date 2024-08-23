@@ -1,5 +1,12 @@
 public class Cadeteria{
-    public string Nombre = @"Pedidos YA";
-    public int telefono = 38128903;
-    public List<string> ListadoCadetes = new List<string>();
+    private string nombre = @"Pedidos YA";
+    private int telefono = 38128903;
+    private List<Cadete> listadoCadetes;
+
+    public Cadeteria(string nombre, int telefono, List<Cadete> listadoCadetes)
+    {
+        this.nombre = nombre;
+        this.telefono = telefono;
+        listadoCadetes = new List<Cadete>();
+    }
 }

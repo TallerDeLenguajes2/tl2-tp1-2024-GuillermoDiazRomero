@@ -5,12 +5,13 @@ public class Cliente
     private int telefono;
     private string? datosReferenciaDireccion;
 
-    public Cliente(string nombre, string direccion, int telefono, string? datosReferenciaDireccion)
+    public Cliente(string nombre, string direccion, int telefono, string? datosReferenciaDireccion, List<Pedido> pedidosCliente)
     {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.datosReferenciaDireccion = datosReferenciaDireccion;
+
     }
 
     

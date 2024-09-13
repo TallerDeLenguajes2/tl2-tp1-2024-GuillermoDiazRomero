@@ -5,12 +5,15 @@ public class Cadete{
     private int telefono;
     private List<Pedido> listadoPedidos;
 
-    public Cadete(int id, string nombre, string direccion, int telefono, List<Pedido> listadoPedidos)
+    public Cadete(int id, string nombre, string direccion, int telefono)
     {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-        listadoPedidos = new List<Pedido>();
+        this.listadoPedidos = new List<Pedido>();
+    }
+    public void JornalACobrar(){
+        System.Console.WriteLine("Cobra $");
     }
 }

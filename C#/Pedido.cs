@@ -1,7 +1,7 @@
 
 public class Pedido {
     private int nro;
-    private string observacion;
+    private string? observacion;
     private Cliente cliente;
     private Estado estadoPedido;
 

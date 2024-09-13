@@ -13,12 +13,22 @@ public class Pedido {
         this.estadoPedido = estadoPedido;
     }
 
-    public void VerDireccionCliente()
+    public void VerDireccionCliente(Cliente clienteDatos)
     {
-        Console.WriteLine("Dirección cliente");
+        Console.WriteLine("Dirección :"+ clienteDatos.Direccion);
+        if (clienteDatos.DatosReferenciaDireccion != null)
+        {
+            Console.WriteLine("Referencias: "+ clienteDatos.DatosReferenciaDireccion);
+        }
+        else{
+            Console.WriteLine("No agregó referencias...");
+        }
     }
 
-    public void VerDatosCliente(){
-        Console.WriteLine("Datos cliente");
+    public void VerDatosCliente(Cliente datos){
+        Console.WriteLine("      Datos del Cliente");
+        Console.WriteLine("Nombre: "+ datos.Nombre);
+        Console.WriteLine("Teléfono: "+ datos.Telefono);
+        VerDireccionCliente(datos);
     }
 }

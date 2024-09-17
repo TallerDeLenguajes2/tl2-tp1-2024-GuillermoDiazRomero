@@ -5,17 +5,16 @@ public class Cliente
     private int telefono;
     private string? datosReferenciaDireccion;
 
-    public Cliente(string nombre, string direccion, int telefono, string? datosReferenciaDireccion, List<Pedido> pedidosCliente)
+    public Cliente(string nombre, string direccion, int telefono, string? datosReferenciaDireccion)
     {
         this.Nombre = nombre;
         this.Direccion = direccion;
         this.Telefono = telefono;
         this.DatosReferenciaDireccion = datosReferenciaDireccion;
-
     }
 
-    public string Nombre { get => nombre;}
-    public string Direccion { get => direccion;}
-    public int Telefono { get => telefono;}
-    public string? DatosReferenciaDireccion { get => datosReferenciaDireccion;}
+    public string Nombre { get => nombre; set => nombre = value; }
+    public string Direccion { get => direccion; set => direccion = value; }
+    public int Telefono { get => telefono; set => telefono = value; }
+    public string? DatosReferenciaDireccion { get => datosReferenciaDireccion; set => datosReferenciaDireccion = value; }
 }

@@ -14,6 +14,6 @@ public class Cadete{
         this.listadoPedidos = new List<Pedido>();
     }
     public void JornalACobrar(){
-        System.Console.WriteLine("Cobra $");
+        Console.WriteLine("Cobra $");
     }
 }

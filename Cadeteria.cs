@@ -13,7 +13,6 @@ public class Cadeteria{
 
     public List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
 
-
     public void AgregarCadete(){
         var archivo = new cargarDatos();
         foreach(var elemento in archivo.obtenerDatosCadetes()){

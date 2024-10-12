@@ -7,7 +7,7 @@ public class cargarDatos
     public static string ArchivoCadetes { get => archivoCadetes; } //Static permite el uso del atributo adentro de la función
     public static string ArchivoCadeteria { get => archivoCadeteria; set => archivoCadeteria = value; }
 
-    public List<Cadete> obtenerDatosCadetes()
+    public static List<Cadete> obtenerDatosCadetes()
     {
         string lineas;
 
@@ -33,7 +33,7 @@ public class cargarDatos
     {
         string? lineas;
 
-        using (StreamReader leer = new StreamReader(ArchivoCadetes))
+        using (StreamReader leer = new StreamReader(ArchivoCadeteria))
         {
 
             lineas = leer.ReadLine();

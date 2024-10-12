@@ -20,7 +20,7 @@ public class Pedido {
 
     public Pedido(){}
 
-    public void VerDireccionCliente(Cliente clienteDatos)
+    public static void VerDireccionCliente(Cliente clienteDatos)
     {
         Console.WriteLine("Dirección :"+ clienteDatos.Direccion);
         if (clienteDatos.DatosReferenciaDireccion != null)
@@ -32,18 +32,20 @@ public class Pedido {
         }
     }
 
-    public void VerDatosCliente(Cliente datos){
+    public static void VerDatosCliente(Cliente datos){
         Console.WriteLine("      Datos del Cliente");
         Console.WriteLine("Nombre: "+ datos.Nombre);
         Console.WriteLine("Teléfono: "+ datos.Telefono);
         VerDireccionCliente(datos);
     }
 
-    public Pedido IngresarPedido(Cliente cliente){
-        Console.WriteLine("Ingrese Observaciones de su Pedido:");
-        string obs = Console.ReadLine() ?? string.Empty;
-        Pedido nuevoPedido = new Pedido(nro,obs,cliente,Estado.EnEspera);
-        nro++;
-        return nuevoPedido;
+    public static Pedido IngresarPedido(Cliente clt,int nro){
+        Pedido nuevo = new Pedido();
+        nuevo.cliente = clt;
+        nuevo.Nro = nro;
+        Console.Write("Ingrese Observaciones de su Pedido: ");
+        nuevo.observacion = Console.ReadLine() ?? string.Empty;
+        nuevo.estadoPedido = Estado.Pendiente;
+        return nuevo;
     }
 }

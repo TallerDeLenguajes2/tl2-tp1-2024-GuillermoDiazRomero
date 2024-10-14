@@ -27,6 +27,11 @@ public class Cadeteria
     public List<Pedido> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
     public List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
 
+
+
+
+
+
     public (int, float) JornalACobrar(int idCadete)
     {
         float montoXpedido = 250;
@@ -35,8 +40,12 @@ public class Cadeteria
         return (cantidadEnvios, montoTotal);
     }
 
+    public void TomarPedido(Pedido nuevoPedido)
+        {
+            ListadoPedidos.Add(nuevoPedido);
+        }
 
-    //COMPLETADO ASIGNAR CADETE A PEDIDO
+
     public void AsignarCadeteAPedido(int idCadete, int idPedido)    //idCadete e idPedido ya vienen con su respectivo control
     {
         Pedido pedidoE = listadoPedidos.FirstOrDefault(p => p.Nro == idPedido);
@@ -45,4 +54,5 @@ public class Cadeteria
         pedidosAsignados.Add(pedidoE);
         listadoPedidos.Remove(pedidoE);
     }
+
 }

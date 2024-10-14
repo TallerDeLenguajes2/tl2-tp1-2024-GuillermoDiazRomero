@@ -23,23 +23,13 @@ public class Pedido {
 
     public Pedido(){}
 
-    public static void VerDireccionCliente(Cliente clienteDatos)
+    public string VerDireccionCliente()
     {
-        Console.WriteLine("Dirección :"+ clienteDatos.Direccion);
-        if (clienteDatos.DatosReferenciaDireccion != null)
-        {
-            Console.WriteLine("Referencias: "+ clienteDatos.DatosReferenciaDireccion);
-        }
-        else{
-            Console.WriteLine("No agregó referencias...");
-        }
+        return $"\t\tPedido número {Nro}\nDirección ---> {cliente.Direccion}\nReferencia ---> {cliente.DatosReferenciaDireccion ?? "No agregó referencias"}";
     }
 
-    public static void VerDatosCliente(Cliente datos){
-        Console.WriteLine("      Datos del Cliente");
-        Console.WriteLine("Nombre: "+ datos.Nombre);
-        Console.WriteLine("Teléfono: "+ datos.Telefono);
-        VerDireccionCliente(datos);
+    public string VerDatosCliente(){
+        return $"Cliente: {cliente.Nombre} ---> Asociado con el pedido de id {Nro}";
     }
 
     public static Pedido IngresarPedido(Cliente clt,int id){

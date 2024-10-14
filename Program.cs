@@ -42,9 +42,11 @@ internal class Program
             {
                 case 1:
                     Console.Clear();
-                    OpcionIngresarPedido(Cliente.CargarCliente(),cantPedidosTomados);
+                    Cliente nCliente = Cliente.IngresoCliente();
+                    Pedido nPedido = Pedido.IngresarPedido(nCliente, cantPedidosTomados);
+                    local.TomarPedido(nPedido);
                     cantPedidosTomados++;
-                    break; //COMPLETADO Y FUNCIONANDO
+                    break; 
                 case 2:
                     OpcionAsignarPedidos();
                     break;  //COMPLETADO Y FUNCIONANDO
@@ -67,11 +69,6 @@ internal class Program
 
         ResumenJornada();
 
-
-        void OpcionIngresarPedido(Cliente nuevoCliente, int idP)
-        {
-            local.ListadoPedidos.Add(Pedido.IngresarPedido(nuevoCliente, idP));
-        }
 
         void OpcionAsignarPedidos()
         {

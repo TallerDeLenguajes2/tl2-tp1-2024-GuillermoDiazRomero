@@ -20,7 +20,7 @@ public class Cliente
     public int Telefono { get => telefono; set => telefono = value; }
     public string? DatosReferenciaDireccion { get => datosReferenciaDireccion; set => datosReferenciaDireccion = value; }
 
-    public static Cliente CargarCliente()
+    public static Cliente IngresoCliente()
     {
         Cliente nuevo = new Cliente();
 

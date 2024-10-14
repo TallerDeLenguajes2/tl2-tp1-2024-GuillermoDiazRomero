@@ -1,5 +1,5 @@
 public enum Estado{
-    Pendiente = 0,
-    Preparado = 1,
-    Completado = 2
+    Pendiente = 1,
+    Repartiendo = 2,
+    Completado = 3
 }

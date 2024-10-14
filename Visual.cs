@@ -25,6 +25,7 @@ public class Visual()
             Console.WriteLine("Observaciones ---> " + item.Observacion);
             Console.WriteLine("Estado ---> " + item.EstadoPedido.ToString());
             Pedido.VerDatosCliente(item.Cliente);
+            Console.WriteLine($"Cadete a cargo --> {item.CadeteACargo?.Nombre ?? "Ninguno"} ");
             Console.WriteLine("------------------------------------");
         }
 
@@ -48,9 +49,16 @@ public class Visual()
     public static void MenuEstados()
     {
         Console.WriteLine("     Estados Disponibles");
-        Console.WriteLine("0.Pendiente");
-        Console.WriteLine("1.Preparado");
-        Console.WriteLine("2.Completado");
+        Console.WriteLine("1.Pendiente");
+        Console.WriteLine("2.Repartiendo");
+        Console.WriteLine("3.Completado");
         Console.Write("Elija una opción: ");
+    }
+
+    public static void MenuCarga(){
+        Console.WriteLine("     Carga de datos mediante");
+        Console.WriteLine("1.CSV");
+        Console.WriteLine("2.JSON");
+        Console.WriteLine("Seleccione una opción:");
     }
 }

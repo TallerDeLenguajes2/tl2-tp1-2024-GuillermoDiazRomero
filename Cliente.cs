@@ -34,7 +34,7 @@ public class Cliente
         nuevo.Telefono = int.Parse(Console.ReadLine());
 
         System.Console.Write("Ingrese referencias de la dirección (si es que tiene): ");
-        nuevo.datosReferenciaDireccion = Console.ReadLine();
+        nuevo.DatosReferenciaDireccion = Console.ReadLine();
 
         return nuevo;
     }

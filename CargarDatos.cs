@@ -2,11 +2,11 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 
 
-namespace persistencia; 
+namespace persistencia;
 //COMPLETADO
 public interface AccesoADatos
 {
-    List<string> leerArchivo(string archivo);
+    List<string> LeerArchivo(string archivo);
     Cadeteria CargarCadeteria();
     List<Cadete> CargarCadetes();
 
@@ -14,7 +14,7 @@ public interface AccesoADatos
 
 public class AccesoCSV : AccesoADatos
 {
-    public List<string> leerArchivo(string ruta)
+    public List<string> LeerArchivo(string ruta)
     {
         if (File.Exists(ruta))
         {
@@ -32,20 +32,21 @@ public class AccesoCSV : AccesoADatos
             }
             return lineas;
         }
-        else{
-            throw new Exception("No existe el archivo en "+ruta);
+        else
+        {
+            throw new Exception("No existe el archivo en " + ruta);
         }
     }
     public Cadeteria CargarCadeteria()
     {
-        var datosCSV = leerArchivo(@"csv/cadeteria.csv");
+        var datosCSV = LeerArchivo(@"csv/cadeteria.csv");
         var datos = datosCSV[0].Split(",");
-        if (datos.Count() < 2){ throw new Exception("Faltan datos");}
+        if (datos.Count() < 2) { throw new Exception("Faltan datos"); }
         return new Cadeteria(datos[0], datos[1]);
     }
     public List<Cadete> CargarCadetes()
     {
-        var datosCSV = leerArchivo(@"csv/cadetes.csv");
+        var datosCSV = LeerArchivo(@"csv/cadetes.csv");
         List<Cadete> cadetes = new List<Cadete>();
 
         foreach (var linea in datosCSV)
@@ -71,42 +72,51 @@ public class AccesoCSV : AccesoADatos
     }
 }
 
+
+
+
 public class AccesoJSON : AccesoADatos
 {
-    public List<string> leerArchivo(string ruta)
+    public List<string> LeerArchivo(string nombreArchivo)
     {
-        if (!File.Exists(ruta)){
-            throw new Exception("No existe el archivo en "+ruta);
-        }
-        return new List<string>(){ File.ReadAllText(ruta) };
+        if (!File.Exists(nombreArchivo))
+            throw new Exception($"El archivo {nombreArchivo} no existe");
+
+        // Lee todo el contenido del archivo como una sola cadena y agrégalo a la lista
+        string contenido = File.ReadAllText(nombreArchivo);
+        return new List<string> { contenido };
     }
+
     public Cadeteria CargarCadeteria()
     {
-        var datosJSON = leerArchivo(@"json/cadeteria.json").FirstOrDefault();
-        if (string.IsNullOrEmpty(datosJSON)){
+        var datosJSON = LeerArchivo(@"json/cadeteria.json").FirstOrDefault();
+        if (string.IsNullOrWhiteSpace(datosJSON))
+        {
             throw new Exception("No se pudieron leer los datos");
         }
         var cadeteria = JsonSerializer.Deserialize<Cadeteria>(datosJSON);
-        
-        if (cadeteria == null)
-        {
-            throw new Exception("ERROR");
-        }
-        
+        if (cadeteria == null) { throw new Exception("ERROR"); }
+
+        cadeteria.ListadoPedidos = new List<Pedido>();
+        cadeteria.PedidosAsignados = new List<Pedido>();
         return cadeteria;
     }
     public List<Cadete> CargarCadetes()
     {
-        var datosJSON = leerArchivo(@"json/cadetes.json").FirstOrDefault();
-        if (string.IsNullOrEmpty(datosJSON))
+        var datosCadetesJson = LeerArchivo("json/cadetes.json").FirstOrDefault();
+
+        if (string.IsNullOrWhiteSpace(datosCadetesJson))
         {
-            throw new Exception("No se pueden leer los datos");
+            return new List<Cadete>();
         }
-        List<Cadete> cadetes = JsonSerializer.Deserialize<List<Cadete>>(datosJSON);
+
+        List<Cadete> cadetes = JsonSerializer.Deserialize<List<Cadete>>(datosCadetesJson);
+
         if (cadetes == null)
         {
-            throw new Exception("ERROR");
+            return new List<Cadete>();
         }
+
         return cadetes;
     }
 }

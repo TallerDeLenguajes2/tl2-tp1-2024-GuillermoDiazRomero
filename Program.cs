@@ -1,6 +1,4 @@
-﻿//  Sistema de Cadetería
-
-// Punto 2b
+﻿
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using persistencia;

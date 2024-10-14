@@ -24,16 +24,16 @@ public class Cliente
     {
         Cliente nuevo = new Cliente();
 
-        System.Console.Write("Ingrese nombre del cliente: ");
+        Console.Write("Ingrese nombre del cliente: ");
         nuevo.Nombre = Console.ReadLine();
 
-        System.Console.Write("Ingrese dirección del cliente: ");
+        Console.Write("Ingrese dirección del cliente: ");
         nuevo.Direccion = Console.ReadLine();
 
-        System.Console.Write("Ingrese telefono del cliente: ");
+        Console.Write("Ingrese telefono del cliente: ");
         nuevo.Telefono = int.Parse(Console.ReadLine());
 
-        System.Console.Write("Ingrese referencias de la dirección (si es que tiene): ");
+        Console.Write("Ingrese referencias de la dirección (si es que tiene): ");
         nuevo.DatosReferenciaDireccion = Console.ReadLine();
 
         return nuevo;

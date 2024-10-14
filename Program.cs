@@ -16,6 +16,7 @@ internal class Program
         int cantidadEnvios = 0;
         int CantidadCompletados = 0;
         int total = 0;
+        string? obs;
 
 
         //CARGANDO DATOS
@@ -42,11 +43,13 @@ internal class Program
             {
                 case 1:
                     Console.Clear();
-                    Cliente nCliente = Cliente.IngresoCliente();
-                    Pedido nPedido = Pedido.IngresarPedido(nCliente, cantPedidosTomados);
+                    Cliente nCliente = IngresoCliente();
+                    Console.WriteLine("Alguna observación para su pedido?");
+                    obs = Console.ReadLine();
+                    Pedido nPedido = Pedido.IngresarPedido(nCliente, cantPedidosTomados, obs);
                     local.TomarPedido(nPedido);
                     cantPedidosTomados++;
-                    break; 
+                    break;
                 case 2:
                     OpcionAsignarPedidos();
                     break;  //COMPLETADO Y FUNCIONANDO
@@ -150,7 +153,24 @@ internal class Program
             }
         }
 
+        Cliente IngresoCliente()
+        {
+            Cliente nuevo = new Cliente();
 
+            Console.Write("Ingrese nombre del cliente: ");
+            nuevo.Nombre = Console.ReadLine();
+
+            Console.Write("Ingrese dirección del cliente: ");
+            nuevo.Direccion = Console.ReadLine();
+
+            Console.Write("Ingrese telefono del cliente: ");
+            nuevo.Telefono = int.Parse(Console.ReadLine());
+
+            Console.Write("Ingrese referencias de la dirección (si es que tiene): ");
+            nuevo.DatosReferenciaDireccion = Console.ReadLine();
+
+            return nuevo;
+        }
 
         //Controles de Carga y Menú principal realizados 
         int controlCarga()

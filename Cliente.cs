@@ -20,22 +20,5 @@ public class Cliente
     public int Telefono { get => telefono; set => telefono = value; }
     public string? DatosReferenciaDireccion { get => datosReferenciaDireccion; set => datosReferenciaDireccion = value; }
 
-    public static Cliente IngresoCliente()
-    {
-        Cliente nuevo = new Cliente();
-
-        Console.Write("Ingrese nombre del cliente: ");
-        nuevo.Nombre = Console.ReadLine();
-
-        Console.Write("Ingrese dirección del cliente: ");
-        nuevo.Direccion = Console.ReadLine();
-
-        Console.Write("Ingrese telefono del cliente: ");
-        nuevo.Telefono = int.Parse(Console.ReadLine());
-
-        Console.Write("Ingrese referencias de la dirección (si es que tiene): ");
-        nuevo.DatosReferenciaDireccion = Console.ReadLine();
-
-        return nuevo;
-    }
+    
 }

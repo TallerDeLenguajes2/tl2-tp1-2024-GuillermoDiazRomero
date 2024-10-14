@@ -32,12 +32,11 @@ public class Pedido {
         return $"Cliente: {cliente.Nombre} ---> Asociado con el pedido de id {Nro}";
     }
 
-    public static Pedido IngresarPedido(Cliente clt,int id){
+    public static Pedido IngresarPedido(Cliente clt,int id, string? observacion){
         Pedido nuevo = new Pedido();
         nuevo.cliente = clt;
         nuevo.Nro = id;
-        Console.Write("Ingrese Observaciones de su Pedido: ");
-        nuevo.observacion = Console.ReadLine() ?? string.Empty;
+        nuevo.observacion = observacion;
         nuevo.estadoPedido = Estado.Pendiente;
         return nuevo;
     }

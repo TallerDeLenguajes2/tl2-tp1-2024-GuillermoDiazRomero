@@ -55,4 +55,19 @@ public class Cadeteria
         listadoPedidos.Remove(pedidoE);
     }
 
+    public string Informe()
+    {
+        string? Informe;
+
+        
+        Informe = "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n\t\tResumen de la jornada\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n";
+        
+        foreach (var cadete in ListadoCadetes)
+        {
+            var Jornal = JornalACobrar(cadete.Id);
+            Informe += $"\n---------------------------------------\nCadete: {cadete.Nombre}\nEnvios = {Jornal.Item1}\nGanancia = ${Jornal.Item2}\n---------------------------------------";
+        }
+        return Informe;
+    }
+
 }

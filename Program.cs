@@ -70,7 +70,7 @@ internal class Program
 
         }
 
-        ResumenJornada();
+        Console.WriteLine(local.Informe());
 
 
         void OpcionAsignarPedidos()
@@ -136,22 +136,6 @@ internal class Program
 
         }
 
-        void ResumenJornada()
-        {
-            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-            Console.WriteLine("      Resumen de la jornada");
-            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-            foreach (var cadete in local.ListadoCadetes)
-            {
-                var Jornal = local.JornalACobrar(cadete.Id);
-
-                Console.WriteLine("---------------------------------------");
-                Console.WriteLine("Cadete: " + cadete.Nombre);
-                Console.WriteLine("Envios = " + Jornal.Item1);
-                Console.WriteLine("Ganancia = $" + Jornal.Item2);
-                Console.WriteLine("---------------------------------------");
-            }
-        }
 
         Cliente IngresoCliente()
         {

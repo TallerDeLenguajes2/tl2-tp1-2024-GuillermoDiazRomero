@@ -24,7 +24,7 @@ public class Visual()
             Console.WriteLine("Numero de pedido ---> " + item.Nro);
             Console.WriteLine("Observaciones ---> " + item.Observacion);
             Console.WriteLine("Estado ---> " + item.EstadoPedido.ToString());
-            Pedido.VerDatosCliente(item.Cliente);
+            // string muestro = Pedido.VerDatosCliente();
             Console.WriteLine($"Cadete a cargo --> {item.CadeteACargo?.Nombre ?? "Ninguno"} ");
             Console.WriteLine("------------------------------------");
         }
